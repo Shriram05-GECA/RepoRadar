@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0B0B14;
+  --foreground: #EDEDF0;
+  --font-unbounded: 'Unbounded', system-ui, sans-serif;
+  --font-instrument: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: #0B0B14;
+  color: #EDEDF0;
+  font-family: var(--font-instrument), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #252545;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #383868;
+}
+
+/* Radar background grid */
+.radar-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(37, 37, 69, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(37, 37, 69, 0.25) 1px, transparent 1px);
+}
+
+.radar-radial-glow {
+  background: radial-gradient(circle at 50% 30%, rgba(198, 255, 61, 0.08) 0%, rgba(61, 90, 254, 0.04) 40%, transparent 70%);
+}
+
+/* Glow effects */
+.glow-critical {
+  box-shadow: 0 0 15px rgba(255, 43, 68, 0.45);
+}
+
+.glow-high {
+  box-shadow: 0 0 15px rgba(255, 46, 147, 0.45);
+}
+
+.glow-lime {
+  box-shadow: 0 0 20px rgba(198, 255, 61, 0.35);
+}
+
+/* Pulse keyframes for dangerous files */
+@keyframes pulseDanger {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(255, 43, 68, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(255, 43, 68, 0.7);
+  }
+}
+
+.animate-pulse-danger {
+  animation: pulseDanger 2s infinite ease-in-out;
+}
